@@ -25,7 +25,6 @@ export async function aiJson(opts: {
       instructions: `${opts.system}\n\n${GUARD}`,
       input: [{ role: "user", content: opts.content }],
       text: { format: { type: "json_schema", name: opts.name, schema: opts.schema, strict: true } },
-      store: false,
     });
     const out = (res as { output?: Array<{ type: string; content?: Array<{ type: string; text?: string }> }> }).output ?? [];
     const text = out
